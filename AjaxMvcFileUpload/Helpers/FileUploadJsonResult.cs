@@ -17,19 +17,9 @@ namespace AjaxFileUpload.Helpers
     /// </remarks>
     public class FileUploadJsonResult : JsonResult
     {
-        public FileUploadJsonResult()
-        {
-            base.ContentType = "text/html";
-        }
-
-        public new string ContentType
-        {
-            get;
-            private set;
-        }
-
         public override void ExecuteResult(ControllerContext context)
         {
+            this.ContentType = "text/html";
             context.HttpContext.Response.Write("<textarea>");
             base.ExecuteResult(context);
             context.HttpContext.Response.Write("</textarea>");
